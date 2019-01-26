@@ -101,18 +101,17 @@ ul {
     width: 10%;
     height: 5vw;
 
-    display: flex;
-    justify-content:center;
-    align-items:Center;
+    padding-top: 1vw;
 
-    font-size: 4vw;
+    text-align: left;
+    font-size: 3vw;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
 .inputMessage {
-    border: 8px solid #000;
+    border: 0.5vw solid #000;
     position: absolute;
     bottom: 0;
     right: 0;
