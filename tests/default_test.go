@@ -6,10 +6,10 @@ import (
 	"testing"
 	"runtime"
 	"path/filepath"
-	_ "chatRoom/routers"
+	_ "github.com/99MyCql/chatRoom/routers"
 
 	"github.com/astaxie/beego"
-	. "github.com/smartystreets/goconvey/convey"
+	_ "github.com/smartystreets/goconvey/convey"
 )
 
 func init() {

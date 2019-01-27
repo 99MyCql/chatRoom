@@ -3,18 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Chat Room</title>
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/static/css/chatRoom.css">
+    <link href="/static/css/bootstrap4.1.0.min.css" rel="stylesheet">
+    <script src="/static/js/bootstrap4.1.0.min.js"></script>
+    <script src="/static/js/jquery-3.2.1.min.js"></script>
     <script src="/static/js/chatRoom.js"></script>
+    <style>
+        html {
+            font-weight: 300;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html, input {
+            font-family:
+                "HelveticaNeue-Light",
+                "Helvetica Neue Light",
+                "Helvetica Neue",
+                Helvetica,
+                Arial,
+                "Lucida Grande",
+                sans-serif;
+        }
+
+        #messageArea {
+            position: fixed;    /* 屏幕滚动关键 */
+            width: 100%;
+            top: 5rem;
+            padding: 0 8rem;
+            max-height: 70%;
+            overflow-y: scroll; /* 屏幕滚动关键 */
+        }
+    </style>
 </head>
 <body>
+    <header class="fixed-top">
+        <div class="navbar shadow-sm" style="background-color: #f5f5f5;">
+            <div class="container d-flex justify-content-between">
+                <div class="col-2">
+                    <a href="/" class="btn btn-outline-secondary text-dark" role="button">
+                        <strong>Back</strong>
+                    </a>
+                </div>
+                <div class="col-8 text-center">
+                    <strong class="text-dark" style="font-size: 180%;">Chat Room</strong>
+                </div>
+                <div class="col-2"></div>
+            </div>
+        </div>
+        <!-- navbar end -->
+    </header>
+    <!-- header end -->
 
-<div class="chat page">
-    <div class="chatArea">
-        <ul class="messages"></ul>
+    <ul id="messageArea"></ul>
+    <!-- message area end -->
+    
+    <div class="row fixed-bottom p-3 mt-3" style="height: 13%;background-color: #f5f5f5">
+        <div class="col-2 text-center text-truncate" style="font-weight: 666;font-size: 25px">
+            <label id="name">{{.name}}</label>
+        </div>
+        <div class="col-7">
+            <input class="form-control" id="inputArea" type="text" placeholder="Type your message..."/>
+        </div>
+        <div class="col-3">
+            <button id="sendBtn" class="btn btn-primary px-5">Send</button>
+        </div>
     </div>
-    <span class="inputName" id="name">{{.name}}</span>
-    <input id="inputMessage" class="inputMessage" placeholder="Type here..."/>
-</div>
+    <!-- inputMessage Area end -->
 </body>
 </html>

@@ -19,6 +19,7 @@ func (c *ServerController) Get()  {
 		return
 	}
 
+	beego.Info("get name:"+name+", and send to chatRoom.html")
 	c.Data["name"] = name
 	c.TplName = "chatRoom.html"
 }
