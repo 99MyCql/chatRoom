@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"chatRoom/controllers"
+	"github.com/99MyCql/chatRoom/controllers"
 	"github.com/astaxie/beego"
 )
 

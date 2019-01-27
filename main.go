@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "chatRoom/routers"
+	_ "github.com/99MyCql/chatRoom/routers"
 	"github.com/astaxie/beego"
 )
 
