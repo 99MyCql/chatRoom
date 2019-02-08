@@ -51,4 +51,4 @@ bee run
 
 ## 详细文档(detailed documentation)
 
-见`doc.md`
+见[doc.md](https://github.com/99MyCql/chatRoom/blob/master/doc.md)

@@ -1,6 +1,4 @@
-# 用beego实现聊天室(WebSocket方式)
-
----
+## 用beego实现聊天室(WebSocket方式)
 
 ### 前言
 
