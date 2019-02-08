@@ -31,7 +31,7 @@ $(function() {
 
     //====================webSocket连接======================
     // 创建一个webSocket连接
-    var socket = new WebSocket('ws://'+window.location.host+'/chatRoom/join?name=' + $('#name').text());
+    var socket = new WebSocket('ws://'+window.location.host+'/chatRoom/WS?name=' + $('#name').text());
 
     // 当webSocket连接成功的回调函数
     socket.onopen = function () {
@@ -104,8 +104,8 @@ $(function() {
         var inputMessage = $inputArea.val();  // 获取输入框的值
 
         if (inputMessage && connected) {
-            $inputArea.val('');      // 情况输入框的值
-            socket.send(inputMessage);
+            $inputArea.val('');      // 清空输入框的值
+            socket.send(inputMessage);  // 基于WebSocket连接发送消息
             console.log("send message:" + inputMessage);
         }
     }

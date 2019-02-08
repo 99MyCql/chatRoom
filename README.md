@@ -28,11 +28,11 @@
 
 ## 使用(how to use)
 
-### 准备：
+### 准备(preparation)：
 
 go 环境 + beego 框架
 
-### 下载：
+### 下载(download)：
 
 `go get github.com/99MyCql/chatRoom`
 
@@ -42,14 +42,13 @@ go 环境 + beego 框架
 
 由于项目中包导入的问题，一定要放在该路径下。
 
-### 运行：
+### 运行(run)：
 
-`cd chatRoom` 然后 `bee run`
+```bash
+cd chatRoom
+bee run
+```
 
-## 参考(reference)
+## 详细文档(detailed documentation)
 
-- [Golang实战-一个聊天室的实现](https://blog.csdn.net/aslackers/article/details/72466730)
-
-- [beego官网聊天室样例](https://github.com/beego/samples/tree/master/WebIM)
-
-- [[实战]基于Go实现Web聊天室(3种方式)](https://www.jianshu.com/p/f0b7b832cc22)
+见`doc.md`

@@ -25,7 +25,7 @@ func (c *ServerController) Get()  {
 }
 
 // 用于与用户间的websocket连接(chatRoom.html发送来的websocket请求)
-func (c *ServerController) Handle() {
+func (c *ServerController) WS() {
 	name := c.GetString("name")
 	if len(name) == 0 {
 		beego.Error("name is NULL")
@@ -52,7 +52,7 @@ func (c *ServerController) Handle() {
 	// 如果用户列表中没有该用户
 	if !clients[client] {
 		join <- client
-		beego.Info("user:", client.name, " websocket connect success!")
+		beego.Info("user:", client.name, "websocket connect success!")
 	}
 
 	// 当函数返回时，将该用户加入退出通道，并断开用户连接
@@ -61,15 +61,17 @@ func (c *ServerController) Handle() {
 		client.conn.Close()
 	}()
 
+	// 由于WebSocket一旦连接，便可以保持长时间通讯，则该接口函数可以一直运行下去，直到连接断开
 	for {
-		//读取消息
-		_, msgStr, err := client.conn.ReadMessage()
-		//如果有错误信息，就退出循环
-		if err != nil {
-			break
-		}
+		// 读取消息。如果连接断开，则会返回错误
+        _, msgStr, err := client.conn.ReadMessage()
 
-		beego.Info("Handle-----------receive: "+string(msgStr))
+        // 如果返回错误，就退出循环
+        if err != nil {
+            break
+        }
+
+		beego.Info("WS-----------receive: "+string(msgStr))
 
 		//如果没有错误，则把用户发送的信息放入message通道中
 		var msg Message

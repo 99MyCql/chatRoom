@@ -23,6 +23,8 @@ type Message struct {
 }
 
 var (
+	// 此处要设置有缓冲的通道。因为这是goroutine自己从通道中发送并接受数据。
+	// 若是无缓冲的通道，该goroutine发送数据到通道后就被锁定，需要数据被接受后才能解锁，而恰恰接受数据的又只能是它自己
 	join = make(chan Client, 10)			// 用户加入通道
 	leave = make(chan Client, 10)			// 用户退出通道
 	message = make(chan Message, 10)		// 消息通道
@@ -40,7 +42,8 @@ func broadcaster() {
 		select {
 			// 消息通道中有消息则执行，否则堵塞
 			case msg := <-message:
-				fmt.Printf("broadcaster-----------%s send message: %s\n", msg.Name, msg.Message)
+				str := fmt.Sprintf("broadcaster-----------%s send message: %s\n", msg.Name, msg.Message)
+				beego.Info(str)
 				// 将某个用户发出的消息发送给所有用户
 				for client := range clients {
 					// 将数据编码成json形式，data是[]byte类型
@@ -58,12 +61,8 @@ func broadcaster() {
 
 			// 有用户加入
 			case client := <-join:
-				fmt.Printf("broadcaster-----------%s join in the chat room\n", client.name)
-				// 如果该用户是老用户
-				if clients[client] {
-					beego.Info("old client:"+client.name)
-					break
-				}
+				str := fmt.Sprintf("broadcaster-----------%s join in the chat room\n", client.name)
+				beego.Info(str)
 				
 				clients[client] = true	// 将用户加入映射
 
@@ -79,7 +78,9 @@ func broadcaster() {
 
 			// 有用户退出
 			case client := <-leave:
-				fmt.Printf("broadcaster-----------%s leave the chat room\n", client.name)
+				str := fmt.Sprintf("broadcaster-----------%s leave the chat room\n", client.name)
+				beego.Info(str)
+				
 				// 如果该用户已经被删除
 				if !clients[client] {
 					beego.Info("the client had leaved, client's name:"+client.name)
