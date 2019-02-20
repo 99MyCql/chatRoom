@@ -12,7 +12,7 @@
 
 前端页面：bootstrap + jQuery。
 
-## 展示(display)
+## 截图(screenShot)
 
 登录：
 
