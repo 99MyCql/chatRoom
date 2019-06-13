@@ -6,20 +6,16 @@
     <title>Chat Room</title>
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
     <link href="/static/css/bootstrap4.1.0.min.css" rel="stylesheet">
+    <link href="/static/css/index.css" rel="stylesheet">
     <script src="/static/js/bootstrap4.1.0.min.js"></script>
     <script src="/static/js/jquery-3.2.1.min.js"></script>
-    <style>
-        html, body {
-            background-color: #f5f5f5;
-        }
-    </style>
 </head>
 
 <body>
-<div class="text-center shadow py-5 px-2 bg-white rounded" style="margin: 10% 20% 0 20%;">
-    <h1 style="font-size:4vw;">Welcome to Chat Room</h1>
-    <div class="row mt-5">
-        <form class="form-inline container" action="/chatRoom">
+<div class="text-center shadow bg-white rounded box">
+    <h1 class="box-title">Welcome to Chat Room</h1>
+    <div class="row box-form">
+        <form class="form-inline" action="/chatRoom">
             <div class="input-group" style="margin:0 auto;">
                 <div class="input-group-prepend">
                     <span class="input-group-text">
@@ -33,7 +29,7 @@
             </div>
         </form>
     </div>
-    <p class="mt-4 text-muted">@<a href="https://github.com/99MyCql">douNine</a></p>
+    <p class="text-muted box-footer">@<a href="https://github.com/99MyCql">douNine</a></p>
 </div>
 </body>
 </html>

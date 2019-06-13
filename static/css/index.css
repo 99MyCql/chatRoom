@@ -1,0 +1,41 @@
+html, body {
+    background-color: #f5f5f5;
+}
+@media (min-width: 980px) {
+    .box {
+        width: 800px;
+        padding: 60px 10px 30px;
+        margin: 200px auto;
+    }
+    .box-title {
+        font-size: 40px;
+    }
+    .box-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 80px;
+    }
+    .box-footer {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 980px) {
+    .box {
+        width: 300px;
+        padding: 60px 10px 30px;
+        margin: 100px auto;
+    }
+    .box-title {
+        font-size: 30px;
+    }
+    .box-form {
+        display: flex;
+        justify-content: center;
+        margin-top: 50px;
+        padding: 0 40px;
+    }
+    .box-footer {
+        margin-top: 60px;
+    }
+}
